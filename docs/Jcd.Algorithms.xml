@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jcd.Algorithms</name>
+    </assembly>
+    <members>
+        <member name="M:Jcd.Algorithms.ArrayExtensions.Rotate(System.Int32[],System.Int32)">
+            <summary>
+            Given an array, rotate the array to the right by k steps,
+            where k is non-negative.
+            </summary>
+            <param name="nums">The array to rotate</param>
+            <param name="k">the number of steps in the rotation</param>
+        </member>
+        <member name="M:Jcd.Algorithms.IntegerExtensions.ReverseBits(System.UInt32)">
+            <summary>
+            Reverse the bits of an integer.
+            </summary>
+            <param name="n">the number to reverse the bits of</param>
+            <returns>the new number</returns>
+        </member>
+        <member name="M:Jcd.Algorithms.IntegerExtensions.Reverse(System.Int32)">
+            <summary>
+            Given a signed 32-bit integer x, return x with its digits reversed. If reversing x
+            causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1],
+            then return 0.
+            </summary>
+            <param name="x"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jcd.Algorithms.MyAtoiExtension.MyAtoi(System.String)">
+            <summary>
+            https://leetcode.com/problems/string-to-integer-atoi/
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jcd.Algorithms.ListNodeExtensions.MyLinkedList.CompareTo(Jcd.Algorithms.ListNodeExtensions.MyLinkedList)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jcd.Algorithms.StringExtensions.FindRepeatedSubSequences(System.String,System.Int32)">
+            <summary>
+            Given a string s return all the N-letter-long sequences (substrings)
+            that occur more than once in the sequence.
+            </summary>
+            <param name="s">The sequence to examine</param>
+            <param name="seqSize">The size of the repeated subsequence to seek</param>
+            <returns>a list of repeated sequences</returns>
+        </member>
+    </members>
+</doc>
