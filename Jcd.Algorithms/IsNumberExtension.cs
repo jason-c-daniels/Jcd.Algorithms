@@ -14,12 +14,9 @@ namespace Jcd.Algorithms
 
             if (s.Length == 2)
             {
-                if (s[0].IsDigit() && s[1].IsPeriod()) return true;
-                if (s[0].IsDigit() && s[1].IsDigit()) return true;
-                if (s[0].IsPeriod() && s[1].IsDigit()) return true;
-                if (s[0].IsPeriod() && s[1].IsE()) return false;
-                if (s[0].IsSign() && s[1].IsDigit()) return true;
-                if (s[0].IsSign() && s[1].IsPeriod()) return false;
+                if (s[0].IsDigit()) return s[1].IsPeriod() || s[1].IsDigit();
+                if (s[0].IsPeriod()) return s[1].IsDigit();
+                if (s[0].IsSign()) return s[1].IsDigit();
                 return false;
             }
 
