@@ -26,16 +26,9 @@ namespace Jcd.Algorithms
 
             // now parse the number
             var state = ParseState.Start;
-            try
+            for( var i=0; i < s.Length && state != ParseState.Error; i++)
             {
-                for( var i=0; i < s.Length && state != ParseState.Error; i++)
-                {
-                    state = ProcessState(state, s[i]);
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
+                state = ProcessState(state, s[i]);
             }
             return state != ParseState.Error;
         }
@@ -43,14 +36,12 @@ namespace Jcd.Algorithms
         private static ParseState ProcessState(ParseState state, char c)
         {
             // only process valid characters
-            if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' ||
-                c == '6' || c == '7' || c == '8' || c == '9' || c == '-' || c == '+' ||
-                c == 'e' || c == 'E' || c == '.')
+            if (c.IsValid())
             {
                 if (state == ParseState.Start)
                 {
-                    if (c.IsSign()) return ParseState.LeadingSign;
                     if (c.IsDigit()) return ParseState.InPrefix;
+                    if (c.IsSign()) return ParseState.LeadingSign;
                     if (c.IsPeriod()) return ParseState.Period;
                     return ParseState.Error;
                 }
@@ -81,8 +72,8 @@ namespace Jcd.Algorithms
                 }
                 else if (state == ParseState.ExponentSymbol)
                 {
-                    if (c.IsSign()) return ParseState.ExponentSign;
                     if (c.IsDigit()) return ParseState.InExponent;
+                    if (c.IsSign()) return ParseState.ExponentSign;
                     return ParseState.Error;
                 }
                 else if (state == ParseState.ExponentSign)
