@@ -43,9 +43,7 @@ namespace Jcd.Algorithms
         private static ParseState ProcessState(ParseState state, char c)
         {
             // only process valid characters
-            if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' ||
-                c == '6' || c == '7' || c == '8' || c == '9' || c == '-' || c == '+' ||
-                c == 'e' || c == 'E' || c == '.')
+            if (c.IsValid())
             {
                 if (state == ParseState.Start)
                 {
