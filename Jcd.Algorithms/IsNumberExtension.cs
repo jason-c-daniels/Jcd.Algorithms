@@ -96,7 +96,8 @@ namespace Jcd.Algorithms
         }
 
 
-        static bool IsValid(this char c) => (c >= '0' && c <= '9') || c == '-' || c == '+' ||
+        static bool IsValid(this char c) => c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' ||
+                                            c == '6' || c == '7' || c == '8' || c == '9' || c == '-' || c == '+' ||
                                             c == 'e' || c == 'E' || c == '.';
         
         static bool IsDigit(this char c) => c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' ||
