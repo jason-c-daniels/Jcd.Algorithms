@@ -8,7 +8,7 @@ namespace Jcd.Algorithms
         public static bool IsNumber(this string s)
         {
             // take care of some well known cases.
-            if (s == null || s.Length < 1) return false;
+            if (string.IsNullOrEmpty(s)) return false;
             if (s.Length == 1)
                 return s[0].IsDigit();
 
