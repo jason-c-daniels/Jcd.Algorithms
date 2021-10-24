@@ -10,17 +10,20 @@ namespace Jcd.Algorithms
             // take care of some well known cases.
             if (s == null || s.Length < 1) return false;
             if (s.Length == 1)
-            {
                 return s[0].IsDigit();
+
+            if (s.Length == 2)
+            {
+                if (s[0].IsDigit() && s[1].IsPeriod()) return true;
+                if (s[0].IsDigit() && s[1].IsDigit()) return true;
+                if (s[0].IsPeriod() && s[1].IsDigit()) return true;
+                if (s[0].IsPeriod() && s[1].IsE()) return false;
+                if (s[0].IsSign() && s[1].IsDigit()) return true;
+                if (s[0].IsSign() && s[1].IsPeriod()) return false;
+                return false;
             }
 
-            if (s.Length == 2 && s[0].IsPeriod() && s[1].IsDigit()) return true;
-            if (s.Length == 2 && s[1].IsPeriod() && s[0].IsDigit()) return true;
-            if (s.Length == 2 && s[0].IsSign() && s[1].IsDigit()) return true;
-            if (s.Length == 2 && s[0].IsDigit() && s[1].IsDigit()) return true;
-            if (s.Length == 2 && s[0].IsSign() && s[1].IsPeriod()) return false;
-            if (s.Length >= 2 && s[0].IsPeriod() && s[1].IsE()) return false;
-            if (s.Length == 2) return false;
+            if (s[0].IsPeriod() && s[1].IsE()) return false;
             if (s[^1].IsE()) return false;
             if (s[^1].IsSign()) return false;
 
